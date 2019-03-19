@@ -1,3 +1,7 @@
+/*
+Given an array A of size N containing 0s, 1s, and 2s; you need to sort the array in ascending order.
+*/
+
 package com.Array.Programs;
 
 import java.io.*;

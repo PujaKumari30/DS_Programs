@@ -1,3 +1,15 @@
+/*
+ * Given an array arr of N integers. Find the contiguous sub-array with maximum sum.
+Input
+2
+5
+1 2 3 -2 5
+4
+-1 -2 -3 -4
+Output
+9
+-1
+ */
 package com.Array.Programs;
 
 import java.util.Scanner;
