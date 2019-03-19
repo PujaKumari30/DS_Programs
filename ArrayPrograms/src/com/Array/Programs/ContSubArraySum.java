@@ -48,7 +48,7 @@ public class ContSubArraySum {
 			
 	}
 	
-	public void ContSum(int t,int n,int sum,int a[])
+/*	public void ContSum(int t,int n,int sum,int a[])
 	{
 		int s =0,startIndex=0;
 		for(int i =0;i<n;i++)
@@ -76,6 +76,5 @@ public class ContSubArraySum {
 		}
 		
 		System.out.println("-1");	
-	}
-
+	} */
 }

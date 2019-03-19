@@ -1,3 +1,4 @@
+/* Program to perform selection sort on arrays in ascending order */
 package com.prog.sorting;
 
 import java.io.BufferedReader;
