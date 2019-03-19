@@ -23,37 +23,43 @@ import java.io.InputStreamReader;
 
 public class ArrayLeader {
 	
-	public static void main(String args[]) throws IOException
-	{
-		int T,n;
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		T = Integer.parseInt(br.readLine());
-		while(T-- > 0)
-		{
-			n = Integer.parseInt(br.readLine());
-			int a[] = new int[n];
-			String str = br.readLine();
-			String str1[] = str.split(" ");
-			for(int i=0;i<str1.length;i++)
+		public static void main (String[] args) throws IOException {
+			int T,n;
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			T = Integer.parseInt(br.readLine());
+			while(T-- > 0)
 			{
-				a[i] = Integer.parseInt(str1[i]);
-			}
-	
-			StringBuilder lead = new StringBuilder();
-			lead = lead.append(a[n-1]); 
-			int max = a[n-1];
-			
-			for(int i=n-2;i>=0;i--)
-			{
-				if(a[i] >= max)
+				n = Integer.parseInt(br.readLine());
+				int a[] = new int[n];
+				String str = br.readLine();
+				String str1[] = str.split(" ");
+				for(int i=0;i<str1.length;i++)
 				{
-					max = a[i];
-					lead = lead.append(a[i]);	
+					a[i] = Integer.parseInt(str1[i]);
 				}
+		
+				int lead[] = new int[n];
+				int k =0;
+				int max = a[n-1];
+				
+				for(int i=n-1;i>=0;i--)
+				{
+					if(a[i] >= max)
+					{
+						max = a[i];
+						lead[k] = a[i];
+						k++;
+					}
+				}
+				
+				StringBuilder sb = new StringBuilder();
+	            for(int i =k-1;i>=0 ;i--)
+	            {
+	                sb = sb.append(lead[i]+" ");
+	            }
+				System.out.println(sb);
 			}
-			System.out.println(lead.reverse());
 		}
-	}
 }
 
 
