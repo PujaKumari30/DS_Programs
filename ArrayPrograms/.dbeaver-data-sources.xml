@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="postgres-jdbc-169a6725bd1-60c8090339f2aec4" provider="postgresql" driver="postgres-jdbc" name="PostgreSQL - bookMyTime" save-password="true" read-only="false">
+		<connection host="localhost" port="5432" server="" database="bookMyTime" url="jdbc:postgresql://localhost:5432/bookMyTime" user="postgres" password="AwsJeBgQEkZUQ1RuQXak" home="postgresql-x64-10" type="dev">
+			<provider-property name="@dbeaver-show-non-default-db@" value="false"/>
+			<provider-property name="@dbeaver-show-template-db@" value="false"/>
+		</connection>
+	</data-source>
+	<filters/>
+</data-sources>
