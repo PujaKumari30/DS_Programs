@@ -1,0 +1,42 @@
+/* Program to find intersection point of 2 linked list */
+
+class Intersect
+{
+	int intersectPoint(Node headA, Node headB)
+	{
+         Node current1 = headA;
+         Node current2 = headB;
+         while(current1!=null && current2!=null)
+         {
+             if(current1 == current2)
+             return current1.data;
+             current1 = current1.next;
+             current2 = current2.next;
+         }
+         
+         if(current1==null)
+         {
+             current1 = headB;
+            while(current1!=null && current2!=null)
+            {
+             if(current1 == current2)
+             return current1.data;
+             current1 = current1.next;
+             current2 = current2.next;
+             }
+         }
+         
+         if(current2==null)
+         {
+            current2 = headA;
+            while(current1!=null && current2!=null)
+            {
+             if(current1 == current2)
+             return current1.data;
+             current1 = current1.next;
+             current2 = current2.next;
+             }
+         }
+         return -1;
+	}
+}
