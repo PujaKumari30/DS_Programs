@@ -1,0 +1,29 @@
+/* To check whether a linked list is palindrome or not */
+
+class Palindrome
+{
+    // Function to check if linked list is palindrome
+    boolean isPalindrome(Node head) 
+    {   
+        if(head == null)
+            return false;
+        if(head.next == null)
+            return true;
+        Node current = head;
+        Stack<Node> temp = new Stack<Node>();
+        while(current!=null)
+        {
+            temp.push(current);
+            current = current.next;
+        }
+
+        current = head;
+        while(current !=null && !temp.isEmpty())
+        {
+	        if(current.data != temp.pop().data)
+	        return false;
+	        current = current.next;
+        }
+        return true;
+    }    
+}
