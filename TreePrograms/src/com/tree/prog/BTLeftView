@@ -1,0 +1,33 @@
+/*Program to print left view of a Binary Tree */
+class Node
+{
+    int data;
+    Node left, right;
+    Node(int item)
+    {
+        data = item;
+        left = right = null;
+    }
+}*/
+class Tree
+{
+     int last_level = 0;
+    void leftView(Node root)
+    {
+        printLeftView(root,1);
+      
+    }
+    void printLeftView(Node root,int level)
+    {
+        if(root==null)
+        return;
+        if(last_level < level)
+        {
+            System.out.print(root.data+" ");
+            last_level = level;
+        }
+        
+        printLeftView(root.left,level+1);
+        printLeftView(root.right,level+1);
+    }
+}
