@@ -1,0 +1,32 @@
+/* Program to print right view of a binary tree */
+
+class Node
+{
+    int data;
+    Node left, right;
+    public Node(int data)
+    {
+        this.data = data;
+         left = right = null;
+    }
+}
+class Tree{
+    int last_level = 0;
+    void rightView(Node node) {
+        rightViewUtil(node,1);
+    }
+    
+    void rightViewUtil(Node node,int level)
+    {
+        if(node == null)
+        return;
+        if(last_level < level)
+        {
+            System.out.print(node.data+" ");
+            last_level = level;
+        }
+        
+        rightViewUtil(node.right,level+1);
+        rightViewUtil(node.left,level+1);
+    }
+}
