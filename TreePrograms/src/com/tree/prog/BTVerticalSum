@@ -1,0 +1,25 @@
+/* Program to find vertical sum of a binary tree and print in left to right order */
+class BTVerticalSum
+{
+    public static void printVertical(Node root)
+    {
+        TreeMap<Integer,Integer> hm = new TreeMap<Integer,Integer>();
+        printVerticalUtil(root,0,hm);
+        if(hm!=null)
+        {
+            for(Integer i : hm.keySet())
+            System.out.print(hm.get(i)+" ");
+            
+        }
+    }
+    
+    public static void printVerticalUtil(Node root,int HD,TreeMap<Integer,Integer> hm)
+    {
+        if(root == null)
+        return;
+        printVerticalUtil(root.left,HD-1,hm);
+        int prevSum = hm.get(HD)==null?0:hm.get(HD);
+        hm.put(HD,prevSum+root.data);
+        printVerticalUtil(root.right,HD+1,hm);
+    }
+}
