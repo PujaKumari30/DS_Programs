@@ -19,7 +19,7 @@ class GFG {
 		    System.out.println(ways);
 		}
 	}
-		
+		//Method-1 using 2D Array-Time Complexity = O(mn),Space Complexity = O(mn)
 		public static int coinChange(int coins[],int m,int n)
 		{
 		    int table[][] = new int[m+1][n+1];
@@ -39,5 +39,22 @@ class GFG {
 		    }
 		    
 		    return table[m][n];
+		}
+		
+		//Method-2 using 1D Array-Time Complexity = O(mn),Space Complexity = O(n)
+		public static int coinChange(int coins[],int m,int n)
+		{
+		    int table[] = new int[n+1];
+		    //Base Case
+		    table[0]=1;
+		    for(int i =0;i<m;i++)
+		    {
+		        for(int j=coins[i];j<=n;j++)
+		        {
+		            table[j] = table[j]+table[j-coins[i]];
+		        }
+		    }
+		    
+		    return table[n];
 		}
 	}
