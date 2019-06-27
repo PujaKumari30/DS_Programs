@@ -1,0 +1,45 @@
+/* Program to find length of longest common subsequence between 2 strings */
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		int T;
+		Scanner sc = new Scanner(System.in);
+		T = sc.nextInt();
+		while(T-->0)
+		{
+		    int m,n;
+		    String x,y;
+		    m = sc.nextInt();
+		    n = sc.nextInt();
+		    x = sc.next();
+		    y = sc.next();
+		    int lcs_length = LCS(x,y,m,n);
+		    System.out.println(lcs_length);
+		}
+	}
+	
+	public static int LCS(String x,String y,int m,int n)
+	{
+	    int table[][] = new int[m+1][n+1];
+	    //Base case
+	    for(int i =0;i<=n;i++)
+	    table[m][i] = 0;
+	    for(int i =0;i<=m;i++)
+	    table[i][n] = 0;
+	    for(int i =m-1;i>=0;i--)
+	    {
+	        for(int j=n-1;j>=0;j--)
+	        {
+	            if(x.charAt(i)==y.charAt(j))
+	            table[i][j] = 1+table[i+1][j+1];
+	            else 
+	            table[i][j] = Math.max(table[i][j+1],table[i+1][j]);
+	        }
+	    }
+	    
+	    return table[0][0];
+	}
+}
