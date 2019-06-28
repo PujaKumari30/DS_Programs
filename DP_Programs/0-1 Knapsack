@@ -1,0 +1,79 @@
+/*package whatever //do not write package name here */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) throws IOException {
+		int T;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    T = Integer.parseInt(br.readLine());
+		while(T-->0)
+		{
+		    int n,w;
+		    n = Integer.parseInt(br.readLine());
+		    w = Integer.parseInt(br.readLine());
+		    String v = br.readLine();
+		    String s = br.readLine();
+		    String va[] = v.split(" ");
+		    String wtt[] = s.split(" ");
+		    int val[] = new int[n];
+		    int wt[] = new int[n];
+		    for(int i =0;i<n;i++)
+		        val[i] = Integer.parseInt(va[i]);
+		        for(int i =0;i<n;i++)
+		        wt[i] = Integer.parseInt(wtt[i]);
+		    
+		   /* n = sc.nextInt();
+		    w = sc.nextInt();
+		    int val[] = new int[n];
+		    int wt[] = new int[n];
+		    for(int i =0;i<n;i++)
+		        val[i] = sc.nextInt();
+		    for(int i =0;i<n;i++)
+		        wt[i] = sc.nextInt(); */
+        System.out.println(knapSack01(val,wt,n,w));
+        }
+       }
+        /* Method 1 using O(nw) space */
+       public static int knapSack01(int val[],int wt[],int n,int w)
+       {
+        int table[][] = new int[n+1][w+1]; 
+		    for(int i=0;i<=n;i++)
+		    table[i][0] =0;
+		    for(int i=0;i<=w;i++)
+		    table[0][i] =0;
+		    for(int i=1;i<=n;i++)
+		    {
+		        for(int j=1;j<=w;j++)
+		        {
+		            if(wt[i-1] > j)
+		            table[i][j]=table[i-1][j];
+		            else
+		            {
+		                table[i][j] = Math.max(table[i-1][j],table[i-1][j-wt[i-1]]+val[i-1]);
+		            }
+		        }
+		    }
+		    
+		    return table[n][w];  
+		}
+    
+    /* Method 2 using O(w) space */
+    
+    public static int knapSack01(int val[],int wt[],int n,int w)
+       {
+        int table[] = new int[w+1]; 
+		    for(int i=0;i<n;i++)
+		    {
+		        for(int j=w;j>0;j--)
+		        {
+		            if(wt[i] <= j)
+		                table[j] = Math.max(table[j],table[j-wt[i]]+val[i]);
+		        }
+		    }
+		    
+		    return table[w];  
+		}
+}
