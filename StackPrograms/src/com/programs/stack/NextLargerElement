@@ -1,0 +1,51 @@
+/*Given an array A of size N having distinct elements, the task is to find the next greater element for each element of the array in order of their appearance in the array. If no such element exists, output -1  */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) throws IOException {
+	    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
+		while(T-- >0)
+		{
+		    int n = Integer.parseInt(br.readLine());
+		    int ar[] = new int[n];
+		    String str[] = br.readLine().split(" ");
+		    for(int i =0;i<n;i++)
+		    ar[i] = Integer.parseInt(str[i]);
+		    HashMap<Integer,Integer> hm = new HashMap<Integer,Integer>();
+		    Stack<Integer> st = new Stack<Integer>(); 
+		    st.push(ar[n-1]);
+		    hm.put(ar[n-1],-1);
+		    for(int i =n-2;i>=0;i--)
+		    { 
+		        if(st.isEmpty())
+		        hm.put(ar[i],-1);
+		        else
+		        {
+		             while(!st.isEmpty())
+		              {
+		               if(st.peek() > ar[i])
+		                {
+		                    hm.put(ar[i],st.peek());
+		                    break;
+		                }
+		                
+		                else
+		                {
+		                    st.pop();
+		                    if(st.isEmpty())
+		                    hm.put(ar[i],-1);
+		                }
+		           }
+		           st.push(ar[i]);
+		        }
+		    }
+		    for(int i : ar)
+		    System.out.print(hm.get(i)+" ");
+		    System.out.println();
+		}
+	}
+}
