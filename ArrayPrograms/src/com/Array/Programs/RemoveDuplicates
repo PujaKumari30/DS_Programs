@@ -1,0 +1,14 @@
+/* Given a sorted array A of size N. The function remove_duplicate takes two arguments . The first argument is the sorted array A[ ] and the second argument is 'N' the size of the array and returns the size of the new converted array A[ ] with no duplicate element. */
+
+int remove_duplicate(int a[])
+	{
+	    int n = a.length;
+		int j=0;
+		for(int i =1;i<n;i++)
+		{
+		    if(a[i]!=a[j])
+		    a[++j] = a[i];
+		}
+		
+		return j+1;
+	}
