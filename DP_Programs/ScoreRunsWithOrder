@@ -1,0 +1,14 @@
+/* Count no of ways to score n using 1 4 6 with order i.e (1,4) and (4,1) are different counts*/
+int scoreRuns(int n)
+{
+  int count[]  = new int[n+1];
+  count[0] =1;
+  
+  for(int i=1;i<=n;i++)
+      count[i] = count[i-1]
+  for(int i =4;i<=n;i++)
+    count[i] = count[i-4] + count[i-1];
+  for(int i =6;i<=n;i++)
+    count[i] = count[i-6] + count[i-4] + count[i-1];
+return count[n];
+}
