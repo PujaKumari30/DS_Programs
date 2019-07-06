@@ -1,0 +1,43 @@
+/*Given a string of character, find the length of longest proper prefix which is also a proper suffix.
+Example:
+S = abab
+lps is 2 because, ab.. is prefix and ..ab is also a suffix. */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+	public static void main (String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		while(T-->0)
+		{
+		    String str = sc.next();
+		    int n = str.length();
+		    int a[] = new int[n];
+		    int i =0,j=1;
+		    a[0] = 0;
+		    while(j<n)
+		    {
+		        if(str.charAt(i) == str.charAt(j))
+		        {
+		            a[j] = i+1;
+		            i++;
+		            j++;
+		        }
+		        
+		        else
+		        {
+		            if(i==0)
+		            j++;
+		            else
+		                i=a[i-1];
+		            }
+		        }
+		        
+		        System.out.println(a[n-1]);
+		    }
+		    
+		}
+	}
