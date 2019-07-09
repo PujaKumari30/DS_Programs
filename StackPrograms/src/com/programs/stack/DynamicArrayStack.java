@@ -7,10 +7,10 @@ public class DynamicArrayStack {
 	int capacity;
 	int array[];
 	
-	DynamicArrayStack()
+	DynamicArrayStack(int capacity)
 	{
 		top = -1;
-		capacity = 1;
+		this.capacity = capacity;
 		array = new int[capacity];
 	}
 	
@@ -33,11 +33,8 @@ public class DynamicArrayStack {
 	void push(DynamicArrayStack stack,int data)
 	{
 		if(isFullStack(stack))
-			System.out.println("Stack full");
-		else
-		{
-			stack.array[++stack.top] = data;
-		}	
+		doubleStack(stack);	
+		stack.array[++stack.top] = data;
 	}
 	
 	int pop(DynamicArrayStack stack)
