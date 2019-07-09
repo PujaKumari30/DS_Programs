@@ -3,21 +3,17 @@
  */
 package com.linkedlist.programs;
 
-public class ReverseListInPairs {
-	
-	//Method -1 Recursion
-	public Node ReverseLinkedListInPairs(Node head)
-	{
-		Node temp;
-		if(head == null || head.next == null)
-			return head;
-		temp = head.next;
-		head.next = temp.next;
-		temp.next = head;
-		
-		return ReverseLinkedListInPairs(head.next);
-		
-	}
+public static Node pairWiseSwap(Node head)
+{
+	if(head == null || head.next == null)
+        return head;
+        
+        Node temp = head.next;
+        Node next = temp.next;
+        temp.next = head;
+        head.next = pairSwapUtil(next);
+        return temp;
+}
 	
 	//Method -2 swapping only data
 	public static void pairwiseSwap(Node node)
