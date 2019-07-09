@@ -19,6 +19,7 @@ public class ListStack {
 	{
 		ListStack temp = new ListStack(data);
 		temp.next = top;
+		top = temp;
 	}
 	
 	int pop(ListStack top)
@@ -30,8 +31,8 @@ public class ListStack {
 		}
 		else
 		{
-			top = top.next;
 			return top.data;
+			top = top.next;	
 		}
 	}
 	
