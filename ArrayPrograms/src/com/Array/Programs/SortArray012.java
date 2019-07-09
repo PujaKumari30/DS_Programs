@@ -33,9 +33,9 @@ public class SortArray012 {
 			
 			StringBuffer sb = new StringBuffer();
 			for(int i =0;i<c0;i++)
-		    {
+		    	{
 			    sb.append("0"+" ");
-	    	}
+	    		}
 		
 			for(int i =0;i<c1;i++)
 			{
